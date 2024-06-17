@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+
+
+<head>
+    <title>3D letala</title>
+    <meta name="description" content="Description of the page">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .wrapper {
+            height: 100vh;
+            overflow-x: hidden;
+            perspective: 10px;
+            /* padding-top: 700px; */
+        }
+
+        header {
+            position: relative;
+            height: 100%;
+            transform-style: preserve-3d;
+            z-index: -1;
+        }
+
+        .background {
+            transform: translateZ(-10px) scale(2);
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .content {
+            color:#ff0000;
+            padding: 150px;
+            margin: 200px;
+            background-color: aqua;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 24px;
+            border: 1px solid #ccc;
+
+
+        }
+
+        .naslov {
+            margin: 100px;
+            color:#ff0000;
+            font-size: large;
+        }
+
+    </style>
+</head>
+
+
+
+<body>
+    <div class="wrapper">
+        <header>
+            <img src="/static/background.jpg" class="background">
+            <div class="naslov">
+                <h1>Možnosti vseh letal</h1>
+            </div>
+        </header>
+        <div class="content">
+            <form action="/prijava" method="post">
+                <label for="fname">First name:</label><br>
+                <input type="text" id="fname" name="fname" ><br>
+
+                <label for="lname">Last name:</label><br>
+                <input type="text" id="lname" name="lname" ><br>
+
+                <input type="submit" value="Submit">
+            </form> 
+        </div>
+    </div>
+</body>
