@@ -28,13 +28,20 @@ def pretvori_uporabnisko_ime(abcdefg):
         rezultat += crka + " - "
     return rezultat[:-3]
 
+
+st_prijav = 0
 @app.post("/prijava/")
 async def login(request: Request, fname: Annotated[str, Form()], lname: Annotated[str, Form()]):
+    global st_prijav
     print(fname)
     print(lname)
+    st_prijav += 1
     if fname == "admin" and lname == "admin":
         return templates.TemplateResponse(
-        request=request, name="name_check.html", context={"pretvori": pretvori_uporabnisko_ime, "nečrkovano_ime": fname, "geslo": lname}
+        request=request, name="name_check.html", context={"pretvori": pretvori_uporabnisko_ime, 
+                                                          "nečrkovano_ime": fname, 
+                                                          "geslo": lname,
+                                                          "st_prijav": st_prijav}
     )
     else:
         return RedirectResponse("https://www.rtvslo.si/")
